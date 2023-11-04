@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="/Project/Login.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <script src="/public/css/bootstrap.bundle.min.js"></script>
+
+</head>
+<body style="background-color: rgb(190, 173, 250);  display: flex; justify-content: center; align-items: center; margin: 0; font-size: small; height: 100vh;">
+    <div class="container">
+        <div class="row bg-white">
+            <div class="col">
+                <h4 class="text-center mt-4 mb-5">Register</h4>
+                <input class="form-control mb-4" type="text" placeholder="Username">
+                <input class="form-control mb-4" type="text" placeholder="Email">
+                <input class="form-control mb-4" type="password" placeholder="Password">
+                <input class="form-control mb-5" type="password" placeholder="Confirm Password">
+                <button onclick="btnregister()" class="btn btn-primary form-control mb-5" >Register</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function btnregister(){
+            window.location.href = "Login_student.html";
+        }
+
+    </script>
+</body>
+</html>

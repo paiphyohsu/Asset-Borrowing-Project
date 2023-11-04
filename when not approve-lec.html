@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>when not approve</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <script src="/public/css/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-abcdefg...." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .left-menu {
+            position: relative;
+            background-color: rgb(190, 173, 250);
+            height: 100vh;
+            border-radius: 0px 30px 30px 0px;
+
+        }
+
+        .profile-icon {
+            font-size: 3em;
+            margin: 70px;
+            color: #494b4c;
+        }
+
+
+        .profile-name {
+            border-radius: 30px;
+            background: rgb(255, 243, 218);
+            padding: 6px;
+            text-align: center;
+            margin: 0px 30px 10px 30px;
+            font-weight: bold;
+        }
+
+        .logout {
+            text-align: center;
+            text-decoration: none;
+            color: #494b4c;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10px;
+            width: 90%;
+            font-size: 18px;
+        }
+
+        .logout:active {
+            color: #0f0e0e;
+        }
+
+        .asset {
+            background-color: rgb(0, 0, 0);
+            color: #FEDADA;
+            border-radius: 20px;
+            padding: 8px 50px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .his {
+            color: #7B7777;
+            border-radius: 20px;
+            padding: 8px 50px;
+            text-decoration: none;
+            font-size: 18px;
+
+        }
+
+        .asset:active,
+        .his:active {
+            color: #000;
+        }
+
+        .db {
+            background-color: rgb(190, 173, 250);
+            color: #7B7777;
+            border-radius: 20px;
+            padding: 8px 50px;
+            text-decoration: none;
+            font-size: 18px;
+            padding-top: 5px;
+        }
+
+        .db:hover {
+            /* background-color: #000000;
+            color: #FEDADA; */
+        }
+
+        .search-bar {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            z-index: 1;
+        }
+
+        #searchInput {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .table-container {
+            margin-top: 150px;
+        }
+
+        .approve-button {
+            background-color: #FFC266;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+
+            margin-left: 500px;
+
+        }
+
+        .reject-button {
+            background-color: #F02834;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .approve-button:hover {
+            background-color: #FFC266;
+        }
+
+        .reject-button:hover {
+            background-color: #F02834;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 450px;
+        }
+
+        .previous-button,
+        .next-button {
+            background-color: #7B7777;
+            /* สีพื้นหลังปุม */
+            color: #fff;
+            /* สีตัวอักษร */
+            font-size: 16px;
+            /* ขนาดตัวอักษร */
+            padding: 10px 20px;
+            /* ขนาดของปุม */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 40px;
+        }
+
+        .previous-button:hover,
+        .next-button:hover {
+            background-color: #7B7777;
+            /* สีพื้นหลังเมื่อเม้าส์ hover ที่ปุม */
+        }
+
+        .center {
+            margin: auto;
+            width: 100%;
+            padding: 20px;
+            
+        }
+
+        .hideform {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 left-menu">
+
+
+                <div class="container">
+                    <a href="#" class="profile-icon">
+                        <iconify-icon icon="iconamoon:profile-circle" style="color: #545454;" width="100" height="100"
+                            height="100"></iconify-icon>
+                    </a>
+                </div>
+
+                <div class="profile-name">
+                    <h3>Lecturer</h3>
+                </div>
+
+                <div>
+                    <a href="#" class=" asset d-block mb-2">
+                        <iconify-icon icon="ion:home" style="color: #7B7777;" width="40" height="30"></iconify-icon>
+                        Browse Asset list
+                    </a>
+                </div>
+
+                <div>
+                    <a href="#" class=" db d-block mb-2">
+                        <iconify-icon icon="carbon:dashboard" style="color: #7B7777;" width="40"
+                            height="30"></iconify-icon></i> Dashboard
+                    </a>
+                </div>
+
+                <div>
+                    <a href="#" class="his d-block mb-2">
+                        <iconify-icon icon="ic:baseline-history" style="color: #7B7777;" width="40"
+                            height="30"></iconify-icon> History
+                    </a>
+                </div>
+
+                <div class=" mt-4">
+                    <a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="col-md-10">
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                </div>
+
+                <div class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Asset Status</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Notebook</td>
+                                <td>
+                                    <span style="color: green;">Approve</span>
+                                    <!-- <button class="approve-button">Approve</button>
+                                    <button class="reject-button">Reject</button> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Pen</td>
+                                <td>
+                                    <span style="color: #373737;">Waiting</span>
+                                    <button class="approve-button">Approve</button>
+                                    <button class="reject-button" id="show">Reject</button>
+                                    <script
+                                        src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                    <div class="center hideform">
+                                        <button id="close" style="float: right;">X</button>
+                                        <form action="/when not approve-lec.html">
+                                            Note:<br>
+                                            <input type="text" name="message" value="">
+
+                                            <br><br>
+                                            <input type="submit" value="OK" style="background-color: #00760C; color: #ffffff;">
+                                            <input type="submit" value="Cancel" style="background-color: #7B7777; color: #ffffff;">
+                                            
+                                            
+                                        </form>
+                                    </div>
+                                    <script>
+                                        $('#show').on('click', function () {
+                                            $('.center').show();
+                                            $(this).hide();
+                                        })
+
+                                        $('#close').on('click', function () {
+                                            $('.center').hide();
+                                            $('#show').show();
+                                        })
+                                    </script>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button class="previous-button">Previous</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

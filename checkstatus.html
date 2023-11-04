@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Status</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <script src="/public/css/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="/public/css/checkstatus.css">
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-abcdefg...." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .red-text {
+        color: red;
+    }
+</style>
+
+<body>
+    <div class="container-fluid" style="margin: 0;">
+        <div class="row">
+            <!-- Left -->
+            <div class="col-md-2">
+                <div class="row text-center"
+                    style="background-color: rgb(190, 173, 250); height: 100vh; border-radius: 0px 30px 30px 0px;">
+
+                    <div class="container d-flex flex-column align-items-center">
+                        <i class="bi-person-circle" style="font-size: 3rem;"></i>
+
+                        <button onclick="profile()" class="btn mb-4"
+                            style="background-color: rgb(255, 243, 218); text-align: left; border-radius: 250px; font-size: 1.5rem; font-weight: bold;">Student</button>
+
+                        <button onclick="browseAsset()" class="btn mb-2 text-muted"
+                            style="text-align: left; border-radius: 250px; font-size: 1.2rem">
+                            <i class="bi-house-fill" style="font-size: 2rem;"></i>Browse Asset List
+                        </button>
+
+                        <button onclick="status()" class="btn mb-3 bg-dark"
+                            style="color: #FEDADA; text-align: left; border-radius: 250px; font-size: 1.2rem">
+                            <i class="bi-card-checklist" style="font-size: 2rem;"></i> Status</button>
+                    </div>
+
+                    <button onclick="logout()" class="btn mt-auto text-muted">
+                        <i class="fas fa-sign-out-alt" style="font-size: 1.3rem;"></i>
+                        <span style="font-size: 1.5rem;">Log Out</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Right -->
+            <div class="col-md-10 container">
+                <div class="row mt-4">
+                    <div class="container d-flex-end mb-5">
+                        <nav class="navbar navbar-expand navbar-light">
+                            <div class="container">
+                                <a class="nav-item nav-link active" href="#" aria-current="page"
+                                    style="font-size: 25px;"></a>
+                                <form class="d-flex" style="background-color: gray;">
+                                    <input type="text" placeholder="Search">
+                                    <button class="btn"><i class="bi-search"></i></button>
+                                </form>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="table-container">
+                        <table class="table table-striped text-center">
+                            <!-- <thead>
+                                    <tr><td>No.</td><td>Name</td><td>Asset status</td><td>Date for borrowing-return</td></tr>
+                                </thead> -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function profile() {
+            window.location.href = "profile.html";
+        }
+
+        function browseAsset() {
+            window.location.href = "list_asset.html";
+        }
+
+        function logout() {
+            window.location.href = "Home.html";
+        }
+
+        const students = [
+            {
+                number: '1',
+                name: 'Notebook',
+                status: 'Approved',
+                date: '1/11/2023-10/11/2023'
+            },
+            {
+                number: '2',
+                name: 'Pen',
+                status: 'Rejected',
+                date: '15/11/2023-20/11/2023'
+            },
+            {
+                number: '3',
+                name: 'Ipad',
+                status: 'Pending',
+                date: '15/11/2023-20/11/2023'
+            }
+        ];
+
+        let output = '<thead><tr><th>No.</th><th>Name</th><th>Asset status</th><th>Date for borrowing-return</th></tr></thead>';
+        output += '<tbody>';
+
+        students.forEach(function (student) {
+            output += '<tr>';
+            output += `<td>${student.number}</td>`;
+            output += `<td>${student.name}</td>`;
+
+            if (student.status === 'Approved') {
+                output += `<td class="text-success">${student.status}</td>`;
+            } else if (student.status === 'Rejected') {
+                output += `<td class="text-danger">${student.status}</td>`; // Apply the "red-text" class
+            } else if (student.status === 'Pending') {
+                output += `<td class="text-warning">${student.status}</td>`;
+            }
+
+            output += `<td>${student.date}</td>`;
+            output += '</tr>';
+        });
+
+        output += '</tbody>';
+        document.querySelector('table').innerHTML = output;
+    </script>
+</body>
+
+</html>

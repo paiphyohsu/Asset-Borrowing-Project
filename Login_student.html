@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <script src="/public/css/bootstrap.bundle.min.js"></script>
+</head>
+
+<body style="background-color: rgb(190, 173, 250); display: flex; justify-content: center; align-items: center; margin: 0; font-size: small; height: 100vh;">
+    <div class="container">
+        <div class="row bg-white">
+            <div class="col">
+                <button class="btn mt-5" style="background-color: rgb(190, 173, 250);">Student</button>
+                <button onclick="loginstaff()" class="btn mt-5" style="background-color: rgb(255, 243, 218);">Staff/Lecturer</button>
+                <h3 class="text-center  mb-4">Login</h3>
+                <input class="form-control mb-4" id="email" type="text" placeholder="Email">
+                <input class="form-control mb-4" id="password" type="password" placeholder="Password">
+                <button onclick="btnlogin()" class="btn btn-primary form-control mb-4">Login</button>
+                <form class="text-center mb-5">
+                    <p style="font-size: 1rem;">Don't have an account? <a href="/views/Register.html">Register</a></p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+    function loginstaff(){
+        window.location.href = "Login_staff.html"
+    }
+    function btnlogin(){
+        var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // ตรวจสอบ email และ password จากผู้ใช้ (ตรวจสอบจริงในการใช้งานจริง)
+            if (email === "student" && password === "1234") {
+                alert("เข้าสู่ระบบสำเร็จ");
+                window.location.href = "list_asset.html"; // แสดงการนำทางไปยังหน้าอื่น (เมื่อเข้าสู่ระบบสำเร็จ)
+            } else {
+                alert("รายละเอียดการเข้าสู่ระบบไม่ถูกต้อง");
+            }
+        }
+    
+</script>
+
+</body>
+
+</html>

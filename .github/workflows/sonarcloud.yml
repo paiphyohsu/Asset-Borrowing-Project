@@ -1,0 +1,29 @@
+name: SonarCloud Scan
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java (required by SonarCloud scanner)
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          organization: paiphyohsu  # <-- Replace with your SonarCloud organization key
+          projectKey: paiphyohsu_Asset-Borrowing-Project  # <-- Replace with your project key
+          token: ${{ secrets.SONAR_TOKEN }}
